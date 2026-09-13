@@ -1,0 +1,1 @@
+# Version Inspector – IntelliJ Plugin

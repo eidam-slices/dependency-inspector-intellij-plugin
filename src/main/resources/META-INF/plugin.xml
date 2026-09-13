@@ -1,0 +1,37 @@
+<idea-plugin>
+
+    <id>cz.eidam.dependency-inspector</id>
+    <name>Dependency Inspector</name>
+
+    <vendor url="https://github.com/eidam-slices">eidam</vendor>
+
+    <description><![CDATA[
+    Inspects Gradle dependency versions and reports when newer versions are available.
+
+    The plugin is designed as an alternative to Android Lint's dependency version checks for non-Android projects.
+
+    Currently supports Gradle Version Catalogs and provides quick-fixes for updating outdated versions.
+
+    Support for Maven POM files, Gradle Kotlin and Groovy DSL files, and additional repositories such as Google Maven and the Gradle Plugin Portal is planned.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.toml.lang</depends>
+
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!--suppress PluginXmlValidity, PluginXmlI18n -->
+        <localInspection
+                language=""
+                shortName="NewerVersionAvailable"
+                displayName="Newer version available"
+                groupName="Dependency inspector"
+                level="WARNING"
+                enabledByDefault="true"
+                implementationClass="cz.eidam.dependencyinspector.VersionInspector"
+        />
+
+
+    </extensions>
+
+</idea-plugin>

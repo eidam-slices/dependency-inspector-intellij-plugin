@@ -1,0 +1,32 @@
+<html lang="en">
+<body>
+
+<p>
+    Detects outdated Gradle dependencies and plugins declared in version catalogs.
+</p>
+
+<p>
+    The inspection checks dependency versions against versions available in Maven Central
+    and highlights declarations for which a newer stable version is available. ()
+</p>
+
+<p>
+    It supports dependencies declared with direct versions as well as shared versions
+    referenced through <code>version.ref</code>.
+</p>
+
+<pre><code>
+[versions]
+ktor = "3.3.0"
+
+[libraries]
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
+</code></pre>
+
+<p>
+    Dependency Inspector resolves version information asynchronously and caches the result
+    for the current project.
+</p>
+
+</body>
+</html>

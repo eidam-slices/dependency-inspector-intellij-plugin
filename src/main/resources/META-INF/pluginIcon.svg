@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="64"
+        height="64"
+        viewBox="0 0 64 64"
+        fill="none">
+
+    <defs>
+        <linearGradient id="blueGradient" x1="22" y1="15" x2="36" y2="27" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#39A0FF" offset=""/>
+            <stop offset="1" stop-color="#1677FF"/>
+        </linearGradient>
+
+        <linearGradient id="cyanGradient" x1="13" y1="36" x2="27" y2="48" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#8CE7FF" offset=""/>
+            <stop offset="1" stop-color="#55C7F2"/>
+        </linearGradient>
+
+        <linearGradient id="greenGradient" x1="32" y1="36" x2="46" y2="48" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#48E28B" offset=""/>
+            <stop offset="1" stop-color="#13BD68"/>
+        </linearGradient>
+
+        <linearGradient id="lensFill" x1="12" y1="12" x2="43" y2="43" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#6EC1FF" stop-opacity="0.16" offset=""/>
+            <stop offset="1" stop-color="#0B1F36" stop-opacity="0.06"/>
+        </linearGradient>
+
+        <filter id="magnifierShadow" x="4" y="6" width="58" height="58" filterUnits="userSpaceOnUse">
+            <feOffset dx="1.2" dy="1.6"/>
+            <feGaussianBlur stdDeviation="1.2"/>
+            <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0.03
+                            0 0 0 0 0.08
+                            0 0 0 0 0.18
+                            0 0 0 0.22 0"
+            />
+            <feBlend in="SourceGraphic" mode="normal" in2=""/>
+        </filter>
+    </defs>
+
+    <!-- Dependencies / libraries in the background -->
+    <path
+            d="M29 25V31M29 31L20 38M29 31L39 38"
+            stroke="#1C3F66"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+    <!-- Main package -->
+    <rect
+            x="22"
+            y="15"
+            width="14"
+            height="12"
+            rx="3"
+            fill="url(#blueGradient)"
+            stroke="#1C3F66"
+            stroke-width="3"/>
+
+    <path
+            d="M25.5 19H32.5"
+            stroke="white"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            opacity="0.95"/>
+
+    <!-- Left dependency -->
+    <rect
+            x="13"
+            y="36"
+            width="14"
+            height="12"
+            rx="3"
+            fill="url(#cyanGradient)"
+            stroke="#1C3F66"
+            stroke-width="3"/>
+
+    <path
+            d="M16.5 40H23.5"
+            stroke="white"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            opacity="0.95"/>
+
+    <path
+            d="M16.5 44H23.5"
+            stroke="white"
+            stroke-width="1.4"
+            stroke-linecap="round"
+            opacity="0.75"/>
+
+    <!-- Right dependency -->
+    <rect
+            x="32"
+            y="36"
+            width="14"
+            height="12"
+            rx="3"
+            fill="url(#greenGradient)"
+            stroke="#1C3F66"
+            stroke-width="3"/>
+
+    <path
+            d="M39 44V39.5M39 39.5L36.5 42M39 39.5L41.5 42"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+    <!-- Magnifying glass in foreground -->
+    <g filter="url(#magnifierShadow)">
+        <circle
+                cx="29"
+                cy="29"
+                r="19.5"
+                fill="url(#lensFill)"/>
+
+        <circle
+                cx="29"
+                cy="29"
+                r="22"
+                stroke="#2B5C88"
+                stroke-width="5"
+                stroke-linecap="round"/>
+
+        <path
+                d="M15 22C16.7 18.2 19.8 15.6 23.6 14.6"
+                stroke="#8ED1FF"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                opacity="0.75"/>
+
+        <path
+                d="M45 45L58 58"
+                stroke="#2B5C88"
+                stroke-width="7"
+                stroke-linecap="round"/>
+
+        <path
+                d="M46.8 46.8L55.8 55.8"
+                stroke="#4E8FC6"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                opacity="0.45"/>
+    </g>
+
+</svg>
