@@ -20,8 +20,9 @@ data class RepositoryCoordinates(
 )
 
 sealed interface LatestVersionResult {
-    data class Found(val version: Version): LatestVersionResult
-    data object NotFound: LatestVersionResult
+    val coordinates: RepositoryCoordinates
+    data class Found(val version: Version, override val coordinates: RepositoryCoordinates): LatestVersionResult
+    data class NotFound(override val coordinates: RepositoryCoordinates): LatestVersionResult
 }
 
 @Service(Service.Level.PROJECT)
@@ -58,16 +59,16 @@ class VersionResolver(
                 val latestVersion = service.latest(group, artifact)
 
                 val result = if (latestVersion != null) {
-                    LatestVersionResult.Found(latestVersion)
+                    LatestVersionResult.Found(latestVersion, coords)
                 } else {
-                    LatestVersionResult.NotFound
+                    LatestVersionResult.NotFound(coords)
                 }
                 cache[coords] = result
                 onComplete.invoke()
 
             } catch (e: ClientRequestException) {
                 if (e.response.status == HttpStatusCode.NotFound) {
-                    cache[coords] = LatestVersionResult.NotFound
+                    cache[coords] = LatestVersionResult.NotFound(coords)
                     onComplete()
                 } else {
                     logFailure(group, artifact, e)

@@ -8,7 +8,7 @@ import com.intellij.psi.ElementManipulators
 
 class UpdateVersionQuickFix(private val version: Version): LocalQuickFix {
     override fun getFamilyName(): @IntentionFamilyName String {
-        return "Update dependency version"
+        return "Update to ${version.value}"
     }
 
     override fun applyFix(

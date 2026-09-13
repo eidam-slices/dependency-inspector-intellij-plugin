@@ -38,9 +38,10 @@ class VersionInspector: LocalInspectionTool() {
                         val newVersionAvailable = comparison > 0
 
                         if (newVersionAvailable) {
+                            val context = "${result.coordinates.group}:${result.coordinates.artifact}"
                             holder.registerProblem(
                                 dependency.elements.version,
-                                "Newer version is available: ${result.version.value}",
+                                "Newer version for '$context' is available: ${result.version.value}",
                                 UpdateVersionQuickFix(result.version)
                             )
                         }
